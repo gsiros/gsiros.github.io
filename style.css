@@ -4,52 +4,141 @@ body {
     padding: 0;
 }
   
-header {
+.navbar {
+    position: fixed;
+    top: 0;
+    float: left;
     background-color: #333;
     color: white;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 25px;
+    height: 95vh;
 }
 
-header div {
-    display: grid;
-    grid-template-columns: auto auto;
+.photocontainer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-items: center;
+    row-gap: 10px;
 }
 
-header img {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    margin-right: 15px;
+.photocontainer img {
+    width: 190px;
+    height: 190px;
+    border-radius: 5px;
+    align-self: flex-start;
+    margin-left: 10px;
+    /*border-radius: 100%;*/
 }
   
-header h1 {
+.photocontainer h1 {
+    padding-top: none;
+    padding-left: 10px;
+    font-weight: bold;
     margin: 0;
+    align-self: flex-start;
 }
 
-nav a {
+.email {
+    padding-top: none;
+    padding-left: 10px;
+    align-self: flex-start;
+    text-align: left;
+    font-size: 12pt;
+    text-decoration: none;
+    font-family: monospace;
+    color: rgb(145, 145, 145);
+}
+
+.optionscontainer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.optionscontainer a {
     color: white;
     text-decoration: none;
-    padding: 20px;
-    font-size: 16pt;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 14pt;
 }
 
-nav a:hover {
+.optionscontainer a:hover {
     background-color: #444;
 }
 
-main {
-    margin: 25px;
+.infocontainer {
+    margin-top: 50px;
+    margin-left: 390px;
+    margin-right: 200px;
+
 }
 
-section {
+.infocontainer section {
     margin-bottom: 25px;
 }
 
-section h2 {
+.infocontainer section h2 {
     margin-top: 0;
+}
+
+#projects li {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 1100px) {
+    .infocontainer {
+        margin-left: 350px;
+        margin-right: 70px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .navbar {
+        position: unset;
+        height: fit-content;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        gap: 50px;
+    }
+
+    .photocontainer {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        row-gap: 10px;
+    }
+
+    .photocontainer img {
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+        /*border-radius: 100%;*/
+    }
+
+    .optionscontainer {
+        margin-right: auto;
+    }
+
+    .infocontainer {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    
+    }
 }
