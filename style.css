@@ -1,3 +1,8 @@
+* {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -92,10 +97,10 @@ body {
     margin-top: 10px;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (max-width: 1100px) {
     .infocontainer {
-        margin-left: 350px;
-        margin-right: 70px;
+        margin-left: 330px;
+        margin-right: 30px;
     }
 }
 
@@ -128,7 +133,6 @@ body {
         width: 100px;
         height: 100px;
         border-radius: 5px;
-        /*border-radius: 100%;*/
     }
 
     .optionscontainer {
@@ -139,6 +143,5 @@ body {
         margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
-    
     }
 }
