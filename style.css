@@ -36,7 +36,6 @@ body {
     border-radius: 5px;
     align-self: flex-start;
     margin-left: 10px;
-    /*border-radius: 100%;*/
 }
   
 .photocontainer h1 {
@@ -60,6 +59,7 @@ body {
 
 .optionscontainer {
     margin-top: 10px;
+    margin-bottom: 5vh;
     display: flex;
     flex-direction: column;
 }
