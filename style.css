@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family:  Geneva, Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -79,32 +79,77 @@ body {
 }
 
 .infocontainer {
-    margin-top: 50px;
-    margin-left: 390px;
-    margin-right: 200px;
-
+    margin-top: 40px;
+    margin-left: 410px;
+    margin-right: 130px;
 }
 
 .infocontainer section {
-    margin-bottom: 25px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.infocontainer ul {
+    list-style-type: square;
+}
+
+.infocontainer a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.infocontainer a:hover {
+    color: red;
 }
 
 .infocontainer section h2 {
     margin-top: 0;
 }
 
+#updateinfo {
+    font-size: small;
+    font-style: italic;
+    color: gray;
+}
+
 #projects li {
     margin-top: 10px;
 }
 
-@media screen and (max-width: 1100px) {
+footer {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#linkscontainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    gap: 15px;
+}
+
+#linkscontainer a {
+    text-decoration: none;
+    color: gray;
+}
+
+#linkscontainer a:hover {
+    color: red;
+}
+
+.date {
+    color: gray;
+}
+
+@media screen and (max-width: 1150px) {
     .infocontainer {
-        margin-left: 330px;
-        margin-right: 30px;
+        margin-left: 355px;
+        margin-right: 45px;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     
     main {
         display: flex;
@@ -114,14 +159,15 @@ body {
     .navbar {
         position: unset;
         height: fit-content;
-        flex-direction: row;
-        align-items: center;
-        justify-items: center;
-        gap: 50px;
+        flex-direction: column;
+        padding-top: 25px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 0px;
     }
 
     .photocontainer {
-        margin-left: auto;
+        margin-left: none;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -136,12 +182,21 @@ body {
     }
 
     .optionscontainer {
-        margin-right: auto;
+        margin-right: none;
+        margin-left: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .infocontainer {
-        margin-top: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-top: 0px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #linkscontainer {
+        justify-content: center;
     }
 }
