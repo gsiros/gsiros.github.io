@@ -51,10 +51,14 @@ body {
     padding-left: 10px;
     align-self: flex-start;
     text-align: left;
-    font-size: 12pt;
+    font-size: 14pt;
     text-decoration: none;
     font-family: monospace;
     color: rgb(145, 145, 145);
+}
+
+.email:hover {
+    text-decoration: underline;
 }
 
 .optionscontainer {
