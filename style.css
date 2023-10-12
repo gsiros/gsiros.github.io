@@ -34,12 +34,13 @@ body {
     margin-right: auto;
     margin-bottom: 20px;
     margin-top: 10px;
-    color: rgb(208, 208, 208);
+    color: rgb(234, 234, 234);
 }
 
 .quote div {
     text-align: right;
-    color: rgb(172, 172, 172);
+    font-size: 11pt;
+    color: rgb(234, 234, 234);
 }
 
 .photocontainer {
