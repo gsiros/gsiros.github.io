@@ -7,6 +7,21 @@
     <meta name="description" content="Georgios Syros - Personal Website">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c82bcd8173.js" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('showMore').addEventListener('click', function() {
+          var hiddenNews = document.querySelector('.expandable-content');
+          if (hiddenNews.style.display === 'none' || hiddenNews.style.display === '') {
+              hiddenNews.style.display = 'block';
+              this.textContent = 'Show Less'; // Change button text to "Show Less"
+          } else {
+              hiddenNews.style.display = 'none';
+              this.textContent = 'Show More'; // Change button text back to "Show More"
+          }
+        });
+      });
+      
+    </script>
   </head>
   <body>
     <main>
@@ -44,7 +59,7 @@
           </p>
       
           <p>
-              Previously, I was also a research <a href="https://users.umiacs.umd.edu/~tdumitra/summer-internship.html" target="_blank"><i>intern</i></a> working with <a href="https://www.cs.umd.edu/~yigitcan/">Yigitcan Kaya</a> at the <b>University of Maryland, College Park</b> under the supervision of <a href="https://users.umiacs.umd.edu/~tdumitra/" target="_blank">Tudor Dumitraș</a>.
+              Previously, I have also been a research <a href="https://users.umiacs.umd.edu/~tdumitra/summer-internship.html" target="_blank"><i>intern</i></a> working with <a href="https://yigitcankaya.github.io/">Yigitcan Kaya</a> at the <b>University of Maryland, College Park</b> under the supervision of <a href="https://users.umiacs.umd.edu/~tdumitra/" target="_blank">Tudor Dumitraș</a>.
           </p>
       </section>
       
@@ -64,7 +79,7 @@
               <br>
               This Fall I will be joining the <a href="http://nds2.ccs.neu.edu/">NDS2 Lab</a> at <b>Northeastern University, Boston</b> as a PhD student!  
             </li>
-
+            
             <li>
               <i class="date">Sep 2022</i>
               <br>
@@ -72,38 +87,41 @@
               the <b>4th Conference on Blockchain Research and Applications for Innovative Networks and Services</b> (BRAINS) in Paris, France.
             </li>
 
-            <li>
-              <i class="date">Aug 2022</i>
-              <br>
-              I attended the <b>31st USENIX Security Symposium</b> in Boston, MA. 
-            </li>
+            <div class="expandable-content">
+              <li>
+                <i class="date">Aug 2022</i>
+                <br>
+                I attended the <b>31st USENIX Security Symposium</b> in Boston, MA. 
+              </li>
 
-            <li>
-              <i class="date">Aug 2022</i>
-              <br>
-              I joined Tudor Dumitraș' group for my Summer@MC2 <b>internship</b> on Cybersecurity at the <b>University of Maryland, College Park</b>. 
-            </li>
+              <li>
+                <i class="date">Aug 2022</i>
+                <br>
+                I joined Tudor Dumitraș' group for my Summer@MC2 <b>internship</b> on Cybersecurity at the <b>University of Maryland, College Park</b>. 
+              </li>
 
-            <li>
-              <i class="date">Jun 2022</i>
-              <br>
-              Received <b>Honors</b> for high academic performance and distinctions, awarded by the <b>Department of Informatics</b>, <b>School of Information Sciences and Technology</b>, <b>AUEB</b>. 
-            </li>
-            
-            <li>
-              <i class="date">May 2022</i>
-              <br>
-              Awarded the HUAWEI Hellas Enterprise <b>Fellowship</b> for excellent performance and distinctions. 
-            </li>
-
-            <li>
-              <i class="date">May 2022</i>
-              <br>
-              Gave a speech at <b>HUAWEI Hellas Enterprise</b> 2022 scholarship ceremony regarding my experience in the <a href="https://www.huawei.com/minisite/seeds-for-the-future/" target="_blank"> <b><i>Seeds for the Future</i></b></a> program. 
-              [<a href="https://e.huawei.com/gr/news/gr/2022-huawei-seeds-for-the-future-scholarship" target="_blank">Press Release</a>]
+              <li>
+                <i class="date">Jun 2022</i>
+                <br>
+                Received <b>Honors</b> for high academic performance and distinctions, awarded by the <b>Department of Informatics</b>, <b>School of Information Sciences and Technology</b>, <b>AUEB</b>. 
+              </li>
               
-            </li>
+              <li>
+                <i class="date">May 2022</i>
+                <br>
+                Awarded the HUAWEI Hellas Enterprise <b>Fellowship</b> for excellent performance and distinctions. 
+              </li>
+
+              <li>
+                <i class="date">May 2022</i>
+                <br>
+                Gave a speech at <b>HUAWEI Hellas Enterprise</b> 2022 scholarship ceremony regarding my experience in the <a href="https://www.huawei.com/minisite/seeds-for-the-future/" target="_blank"> <b><i>Seeds for the Future</i></b></a> program. 
+                [<a href="https://e.huawei.com/gr/news/gr/2022-huawei-seeds-for-the-future-scholarship" target="_blank">Press Release</a>]
+                
+              </li>
+            </div>
           </ul>
+          <button id="showMore">Show More</button>
         </section>
         
         <section id="education">

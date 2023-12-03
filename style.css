@@ -168,6 +168,24 @@ footer {
     color: gray;
 }
 
+.expandable-content {
+    display: none;
+}
+
+#showMore {
+    font-family:  Geneva, Arial, sans-serif;
+    margin-left: 35px;
+    padding: 5px;
+    font-weight: bold;
+    color: #8b0000;
+    background-color: gainsboro;
+    border-radius: 5px;
+}
+
+#showMore:active {
+    color: #680101;
+}
+
 @media screen and (max-width: 1150px) {
     .infocontainer {
         margin-left: 355px;
