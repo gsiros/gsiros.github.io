@@ -81,10 +81,12 @@ body {
 
 .pronunciation a {
     text-decoration: none;
+    color: rgb(145, 145, 145);
 }
 
 .pronunciation:hover {
     text-decoration: underline;
+    color: rgb(145, 145, 145);
 }
 
 .pronunciation a:visited {
