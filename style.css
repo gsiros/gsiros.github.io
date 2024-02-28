@@ -68,19 +68,27 @@ body {
     align-self: flex-start;
 }
 
-.email {
+.pronunciation {
     padding-top: none;
     padding-left: 10px;
     align-self: flex-start;
     text-align: left;
-    font-size: 14pt;
+    font-size: 12pt;
     text-decoration: none;
     font-family: monospace;
     color: rgb(145, 145, 145);
 }
 
-.email:hover {
+.pronunciation a {
+    text-decoration: none;
+}
+
+.pronunciation:hover {
     text-decoration: underline;
+}
+
+.pronunciation a:visited {
+    color: rgb(145, 145, 145);
 }
 
 .optionscontainer {
@@ -242,5 +250,9 @@ footer {
 
     #linkscontainer {
         justify-content: center;
+    }
+
+    .quote {
+        margin-right: 0%;
     }
 }
