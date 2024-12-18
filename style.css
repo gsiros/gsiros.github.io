@@ -196,6 +196,25 @@ footer {
     color: #680101;
 }
 
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px;
+}
+
+.gallery img {
+    width: 100%;               /* Take up full width of the grid cell */
+    height: 300px;             /* Fixed height for all images */
+    object-fit: cover;         /* Crop the image to fit the container */
+    border-radius: 5px;        /* Optional: rounded corners */
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Add zoom effect on hover */
+}
+
 @media screen and (max-width: 1150px) {
     .infocontainer {
         margin-left: 355px;
