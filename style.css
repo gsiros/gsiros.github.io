@@ -215,6 +215,20 @@ footer {
     transform: scale(1.05); /* Add zoom effect on hover */
 }
 
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+  
+  .icon {
+    width: 2em;
+    height: 2em;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
 @media screen and (max-width: 1150px) {
     .infocontainer {
         margin-left: 355px;
