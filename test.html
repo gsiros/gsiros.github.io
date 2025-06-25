@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Page</title>
+</head>
+<body>
+  <img src="image.png" alt="Image">
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    console.log('Query param q:', q);
+  </script>
+</body>
+</html>
