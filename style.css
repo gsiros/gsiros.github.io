@@ -27,9 +27,8 @@ body {
 /* Put quote to the top of the page, make it smaller and wrap text*/
 /* make it wrap around the given div width */
 .quote {
-    font-size: 12pt;
+    font-size: 9pt;
     font-style: italic;
-    font-family: "Times New Roman", Times, serif;
     margin-top: 0;
     margin-bottom: 0;
     width: 250px;
@@ -38,13 +37,13 @@ body {
     margin-right: auto;
     margin-bottom: 20px;
     margin-top: 10px;
-    color: rgb(234, 234, 234);
+    color: rgb(154, 154, 154);
 }
 
 .quote div {
     text-align: right;
-    font-size: 11pt;
-    color: rgb(234, 234, 234);
+    font-size: 10pt;
+    color: rgb(154, 154, 154);
 }
 
 .photocontainer {
