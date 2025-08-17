@@ -18,20 +18,24 @@
     <link rel="icon" type="image/png" href="icon.png">
     <script src="https://kit.fontawesome.com/c82bcd8173.js" crossorigin="anonymous"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', (event) => {
-        document.getElementById('showMore').addEventListener('click', function() {
-          var hiddenNews = document.querySelector('.expandable-content');
-          if (hiddenNews.style.display === 'none' || hiddenNews.style.display === '') {
-              hiddenNews.style.display = 'block';
-              this.textContent = 'Show Less'; // Change button text to "Show Less"
-          } else {
-              hiddenNews.style.display = 'none';
-              this.textContent = 'Show More'; // Change button text back to "Show More"
-          }
-        });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('section').forEach(section => {
+      const btn = section.querySelector('.show-more');
+      const content = section.querySelector('.expandable-content');
+      if (!btn || !content) return;
+
+      // Ensure initial state
+      const isHidden = getComputedStyle(content).display === 'none';
+      btn.textContent = isHidden ? 'Show More' : 'Show Less';
+
+      btn.addEventListener('click', () => {
+        const hidden = getComputedStyle(content).display === 'none';
+        content.style.display = hidden ? 'block' : 'none';
+        btn.textContent = hidden ? 'Show Less' : 'Show More';
       });
-      
-    </script>
+    });
+  });
+</script>
   </head>
   <body>
     <main>
@@ -69,7 +73,7 @@
 
         <section id="about">
           <h2>About</h2>
-          <p>I am a <b>Computer Science</b> PhD student at <b>Northeastern University, Boston</b>. I'm interested in computer security, with a focus on machine learning as a key element within a broader pipeline of components in software systems.
+          <p>I am a <b>Computer Science</b> PhD student at <b>Northeastern University, Boston</b>. I'm interested in computer security, with a focus on Artificial Intelligence as a key element within a broader pipeline of components in software systems.
           </p>
       
           <p>
@@ -96,17 +100,23 @@
               Our paper, <b><i>"SAGA: A Security Architecture for Governing AI Agentic Systems"</i></b>, was accepted to the <b>2026 Network and Distributed System Security (NDSS) Symposium</b>! See you in San Diego, CA!
             </li>
 
+            <br>
+
             <li>
               <i class="date">May 2025</i>
               <br>
               I will be speaking at the <b>Khoury Security and Privacy Day</b> at Northeastern University, Boston.
             </li>
 
+            <br>
+
             <li>
               <i class="date">Feb 2025</i>
               <br>
               I will be speaking at the <b><a href='https://khoury-srg.github.io/nesd25/' target='_blank'>New England Systems Day 2025</a></b> at Northeastern University, Boston.
             </li>
+
+            <br>
 
             <div class="expandable-content">
 
@@ -117,11 +127,15 @@
                 the <b>ACM Transactions on Privacy and Security</b> (TOPS) journal.
               </li>
 
+              <br>
+
               <li>
                 <i class="date">March 2024</i>
                 <br>
                 I will be attending the <b>New England Security Day 2024</b> at UConn, CT. Come say hi!
               </li>
+
+              <br>
 
               <li>
                 <i class="date">Jul 2023</i>
@@ -129,11 +143,15 @@
                 I successfully completed my undergraduate studies at the <b>Athens University of Economics and Business</b>.  
               </li>
 
+              <br>
+
               <li>
                 <i class="date">Mar 2023</i>
                 <br>
                 This Fall I will be joining the <a href="http://nds2.ccs.neu.edu/">NDS2 Lab</a> at <b>Northeastern University, Boston</b> as a PhD student!  
               </li>
+
+              <br>
 
               <li>
                 <i class="date">Sep 2022</i>
@@ -142,11 +160,15 @@
                 the <b>4th Conference on Blockchain Research and Applications for Innovative Networks and Services</b> (BRAINS).
               </li>
 
+              <br>
+
               <li>
                 <i class="date">Aug 2022</i>
                 <br>
                 I attended the <b>31st USENIX Security Symposium</b> in Boston, MA. 
               </li>
+
+              <br>
 
               <li>
                 <i class="date">Aug 2022</i>
@@ -154,11 +176,15 @@
                 I joined Tudor Dumitraș' group for my Summer@MC2 <b>internship</b> on Cybersecurity at the <b>University of Maryland, College Park</b>. 
               </li>
 
+              <br>
+
               <li>
                 <i class="date">Jun 2022</i>
                 <br>
                 Received <b>Honors</b> for high academic performance and distinctions, awarded by the <b>Department of Informatics</b>, <b>School of Information Sciences and Technology</b>, <b>AUEB</b>. 
               </li>
+
+              <br>
               
               <li>
                 <i class="date">May 2022</i>
@@ -166,16 +192,17 @@
                 Awarded the HUAWEI Hellas Enterprise <b>Fellowship</b> for excellent performance and distinctions. 
               </li>
 
+              <br>
+
               <li>
                 <i class="date">May 2022</i>
                 <br>
                 Gave a speech at <b>HUAWEI Hellas Enterprise</b> 2022 scholarship ceremony regarding my experience in the <a href="https://www.huawei.com/minisite/seeds-for-the-future/" target="_blank"> <b><i>Seeds for the Future</i></b></a> program. 
                 [<a href="https://e.huawei.com/gr/news/gr/2022-huawei-seeds-for-the-future-scholarship" target="_blank">Press Release</a>]
-                
               </li>
             </div>
           </ul>
-          <button id="showMore">Show More</button>
+          <button class="show-more">Show More</button>
         </section>
         
         <section id="education">
@@ -194,7 +221,7 @@
         <section id="research">
           <h2>Research</h2>
           <p>
-            My research focuses on security in distributed and decentralized systems, with an emphasis on machine learning as a component within broader system pipelines. I explore how machine learning can be securely integrated into complex software ecosystems, ensuring robustness, privacy, and resilience. My work spans secure machine learning for database management systems, federated learning security, and secure agentic systems, aiming to build security frameworks that protect sensitive data while maintaining system efficiency. I am particularly interested in designing privacy-preserving architectures, secure communication protocols, and access control mechanisms that enable machine learning to function safely within larger, interconnected systems.
+            My research focuses on security in distributed and decentralized systems, with an emphasis on Artificial Intelligence as a component within broader system pipelines. I explore how machine learning and artificial intelligence can be securely integrated into complex software ecosystems, ensuring robustness, privacy, and resilience. My work spans secure machine learning for database management systems, federated learning security, and secure agentic systems, aiming to build security frameworks that protect sensitive data while maintaining system efficiency. I am particularly interested in designing privacy-preserving architectures, secure communication protocols, and access control mechanisms that enable machine learning to function safely within larger, interconnected systems.
           </p>
         </section>
         
@@ -218,16 +245,16 @@
           <h2>Teaching</h2>
           <ul>
             <li>
-              <b>CS6620: Fundamentals of Cloud Computing</b> <i class="date">Summer 2025</i>
+              <b>CS3650: Computer Systems</b> <i class="date">Fall 2025</i>
               <br>
-              Teaching Assistant at Northeastern University, Online.
+              Teaching Assistant at Northeastern University, Boston.
             </li>
           </ul>
           <ul>
             <li>
-              <b>CS3650: Computer Systems</b> <i class="date">Fall 2025</i>
+              <b>CS6620: Fundamentals of Cloud Computing</b> <i class="date">Summer 2025</i>
               <br>
-              Teaching Assistant at Northeastern University, Boston.
+              Teaching Assistant at Northeastern University, Online.
             </li>
           </ul>
         </section>
@@ -235,10 +262,10 @@
         <section id="talks">
           <h2>Talks</h2>
           <ul>
-            <li><b><u>G. Syros</u></b>, <i><b>"From Autonomy to Accountability: Securing Agentic AI Systems with SAGA"</b></i><br><b>@ Khoury Security and Privacy Day</b>, <i class="date">May 2025</i></li>
+            <li><i><b>"From Autonomy to Accountability: Securing Agentic AI Systems with SAGA"</b></i><br><i>@ Khoury Security and Privacy Day</i>, <i class="date">May 2025</i></li>
           </ul>
-          <ul  
-            <li><b><u>G. Syros</u></b>, <i><b>"DROP: Poison Dilution via Knowledge Distillation for Federated Learning"</b></i><br><b>@ NESysDay'25</b>, <i class="date">Feb 2025</i></li>
+          <ul>
+            <li><i><b>"DROP: Poison Dilution via Knowledge Distillation for Federated Learning"</b></i><br><i>@ NESysDay'25</i>, <i class="date">Feb 2025</i></li>
           </ul>
         </section>
 
@@ -273,6 +300,8 @@
             </li>
 
             <br>
+
+            <div class="expandable-content">
             
             <li>
               <i><b>Vζoom; developing a fast, lightweight video calling web app</b></i>
@@ -326,7 +355,9 @@
               <b><u>G. Syros</u></b>, E. Syros <i class="date">Nov 2017</i>
               [<a href="https://play.google.com/store/apps/details?id=com.george2001s.mathstests" target="_blank"><i class="fa-brands fa-google-play"></i></a>]
             </li>
+            </div>
           </ul>
+          <button class="show-more">Show More</button>
         </section>
 
         <section id="service">
