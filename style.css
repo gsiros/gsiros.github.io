@@ -28,7 +28,7 @@ body {
 /* Put quote to the top of the page, make it smaller and wrap text*/
 /* make it wrap around the given div width */
 .quote {
-    font-size: 9pt;
+    font-size: 7pt;
     font-style: italic;
     margin-top: 0;
     margin-bottom: 0;
@@ -43,7 +43,7 @@ body {
 
 .quote div {
     text-align: right;
-    font-size: 10pt;
+    font-size: 8pt;
     color: rgb(154, 154, 154);
 }
 
