@@ -107,11 +107,13 @@ body {
     padding-bottom: 5px;
     font-size: 14pt;
     border-radius: 4px;
-    transition: background-color 0.2s ease;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .optionscontainer a:hover {
     background-color: #3d4156;
+    border-color: #c9a84c;
 }
 
 .infocontainer {
@@ -406,6 +408,11 @@ footer {
         justify-content: center;
         margin-top: 10px;
         margin-bottom: 20px;
+    }
+
+    .optionscontainer a {
+        border-left: none;
+        border-bottom: 3px solid transparent;
     }
 
     .infocontainer {
