@@ -19,12 +19,12 @@
     <script src="https://kit.fontawesome.com/c82bcd8173.js" crossorigin="anonymous"></script>
     <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Expandable sections
     document.querySelectorAll('section').forEach(section => {
       const btn = section.querySelector('.show-more');
       const content = section.querySelector('.expandable-content');
       if (!btn || !content) return;
 
-      // Ensure initial state
       const isHidden = getComputedStyle(content).display === 'none';
       btn.textContent = isHidden ? 'Show More' : 'Show Less';
 
@@ -33,6 +33,57 @@
         content.style.display = hidden ? 'block' : 'none';
         btn.textContent = hidden ? 'Show Less' : 'Show More';
       });
+    });
+
+    // Photo carousel
+    const gallery = document.querySelector('.gallery');
+    if (!gallery) return;
+    const track = gallery.querySelector('.gallery-track');
+    const slides = gallery.querySelectorAll('.gallery-slide');
+    const prevBtn = gallery.querySelector('.gallery-prev');
+    const nextBtn = gallery.querySelector('.gallery-next');
+    const dotsContainer = gallery.querySelector('.gallery-dots');
+    let currentPage = 0;
+
+    function getPerPage() {
+      return window.innerWidth > 800 ? 2 : 1;
+    }
+
+    function getTotalPages() {
+      return Math.ceil(slides.length / getPerPage());
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      const total = getTotalPages();
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('gallery-dot');
+        if (i === currentPage) dot.classList.add('active');
+        dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function goTo(index) {
+      const totalPages = getTotalPages();
+      currentPage = ((index % totalPages) + totalPages) % totalPages;
+      track.style.transform = 'translateX(-' + (currentPage * 100) + '%)';
+      dotsContainer.querySelectorAll('.gallery-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentPage);
+      });
+    }
+
+    buildDots();
+    prevBtn.addEventListener('click', () => goTo(currentPage - 1));
+    nextBtn.addEventListener('click', () => goTo(currentPage + 1));
+
+    window.addEventListener('resize', () => {
+      const totalPages = getTotalPages();
+      if (currentPage >= totalPages) currentPage = totalPages - 1;
+      buildDots();
+      goTo(currentPage);
     });
   });
 </script>
@@ -403,13 +454,36 @@
 
         <section id="photos">
           <div class="gallery">
-            <img src="me_and_alina.jpg" alt="Alina Oprea and I, Cybersecurity and Privacy Institute, Boston, MA">
-            <img src="me_and_tudor.jpeg" alt="Tudor Dumitraș and I, Maryland Cybersecurity Center, College Park, MD">
-            <img src="syros_woods.jpeg" alt="Me on Mt. Washington, NH">
-            <img src="me_at_huawei.jpeg" alt="Me giving a speech at HUAWEI Hellas Enterprise 2022 scholarship ceremony, Athens, Greece">
-            <img src="sef.jpeg" alt="Peace and Friendship Stadium, Piraeus, Greece">
-            <img src="motorcycle.jpeg" alt="Me on my motorcycle">
-        </div>
+            <div class="gallery-track">
+              <div class="gallery-slide">
+                <img src="me_and_alina.jpg" alt="Alina Oprea and I, Cybersecurity and Privacy Institute, Boston, MA">
+                <p class="gallery-caption">Alina Oprea and I, Cybersecurity and Privacy Institute, Boston, MA</p>
+              </div>
+              <div class="gallery-slide">
+                <img src="me_and_tudor.jpeg" alt="Tudor Dumitraș and I, Maryland Cybersecurity Center, College Park, MD">
+                <p class="gallery-caption">Tudor Dumitra&#x219; and I, Maryland Cybersecurity Center, College Park, MD</p>
+              </div>
+              <div class="gallery-slide">
+                <img src="syros_woods.jpeg" alt="Me on Mt. Washington, NH">
+                <p class="gallery-caption">Me on Mt. Washington, NH</p>
+              </div>
+              <div class="gallery-slide">
+                <img src="me_at_huawei.jpeg" alt="Me giving a speech at HUAWEI Hellas Enterprise 2022 scholarship ceremony, Athens, Greece">
+                <p class="gallery-caption">Me giving a speech at HUAWEI Hellas Enterprise 2022 scholarship ceremony, Athens, Greece</p>
+              </div>
+              <div class="gallery-slide">
+                <img src="sef.jpeg" alt="Peace and Friendship Stadium, Piraeus, Greece">
+                <p class="gallery-caption">Peace and Friendship Stadium, Piraeus, Greece</p>
+              </div>
+              <div class="gallery-slide">
+                <img src="motorcycle.jpeg" alt="Me on my motorcycle">
+                <p class="gallery-caption">Me on my motorcycle</p>
+              </div>
+            </div>
+            <button class="gallery-btn gallery-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="gallery-btn gallery-next" aria-label="Next photo">&#8250;</button>
+            <div class="gallery-dots"></div>
+          </div>
         </section>
 
         <footer class="site-footer">
