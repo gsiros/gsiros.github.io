@@ -398,6 +398,7 @@ footer {
         align-self: start;
         padding-left: 0;
         text-align: left;
+        margin-top: 5px;
     }
 
     .navbar-divider {
