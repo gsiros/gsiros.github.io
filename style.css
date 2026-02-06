@@ -145,6 +145,24 @@ body {
     color: #2d3142;
 }
 
+#publications ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#publications li {
+    background-color: #f0ece7;
+    padding: 14px 18px;
+    border-left: 3px solid #4f6d7a;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.pub-links {
+    margin-left: 4px;
+}
+
 #updateinfo {
     font-size: small;
     font-style: italic;
@@ -169,12 +187,12 @@ footer {
 
 #linkscontainer a {
     text-decoration: none;
-    color: #8c8680;
+    color: #4f6d7a;
     transition: color 0.2s ease;
 }
 
 #linkscontainer a:hover {
-    color: #4f6d7a;
+    color: #6a8fa0;
 }
 
 .date {
@@ -223,6 +241,15 @@ footer {
 
 .gallery img:hover {
     transform: scale(1.05);
+}
+
+.site-footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #ddd6cd;
+    text-align: center;
+    color: #8c8680;
+    font-size: 9pt;
 }
 
 .icon-wrapper {
