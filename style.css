@@ -194,12 +194,12 @@ footer {
 
 #linkscontainer a {
     text-decoration: none;
-    color: #4f6d7a;
+    color: #5b6078;
     transition: color 0.2s ease;
 }
 
 #linkscontainer a:hover {
-    color: #6a8fa0;
+    color: #3d4156;
 }
 
 .date {
