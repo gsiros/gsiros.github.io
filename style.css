@@ -8,25 +8,26 @@ html {
 }
 
 body {
-    font-family:  Geneva, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
     font-size: 11pt;
+    background-color: #f8f5f0;
+    color: #363636;
 }
-  
+
 .navbar {
     position: fixed;
     top: 0;
     float: left;
-    background-color: #333;
-    color: white;
+    background-color: #2d3142;
+    color: #e8e4df;
     display: flex;
     flex-direction: column;
     padding: 25px;
     height: 100vh;
 }
-/* Put quote to the top of the page, make it smaller and wrap text*/
-/* make it wrap around the given div width */
+
 .quote {
     font-size: 8pt;
     font-style: italic;
@@ -38,13 +39,13 @@ body {
     margin-right: auto;
     margin-bottom: 20px;
     margin-top: 10px;
-    color: rgb(154, 154, 154);
+    color: #9a9590;
 }
 
 .quote div {
     text-align: right;
     font-size: 9pt;
-    color: rgb(154, 154, 154);
+    color: #9a9590;
 }
 
 .photocontainer {
@@ -59,18 +60,19 @@ body {
 .photocontainer img {
     width: 190px;
     height: 190px;
-    border-radius: 5px;
+    border-radius: 8px;
     align-self: flex-start;
     margin-left: 10px;
 }
-  
+
 .photocontainer h1 {
     padding-top: none;
     padding-left: 10px;
     font-weight: bold;
     margin: 0;
     align-self: flex-start;
-    font-family: Geneva, monospace;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #f0ece7;
 }
 
 .pronunciation {
@@ -81,12 +83,12 @@ body {
     font-size: 12pt;
     text-decoration: none;
     font-family: monospace;
-    color: rgb(145, 145, 145);
+    color: #9a9590;
 }
 
 .pronunciation a {
     text-decoration: none;
-    color: rgb(145, 145, 145);
+    color: #9a9590;
 }
 
 .optionscontainer {
@@ -97,17 +99,19 @@ body {
 }
 
 .optionscontainer a {
-    color: white;
+    color: #e8e4df;
     text-decoration: none;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 14pt;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
 }
 
 .optionscontainer a:hover {
-    background-color: #444;
+    background-color: #3d4156;
 }
 
 .infocontainer {
@@ -128,21 +132,23 @@ body {
 .infocontainer a {
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: #4f6d7a;
+    transition: color 0.2s ease;
 }
 
 .infocontainer a:hover {
-    color: red;
+    color: #6a8fa0;
 }
 
 .infocontainer section h2 {
     margin-top: 0;
+    color: #2d3142;
 }
 
 #updateinfo {
     font-size: small;
     font-style: italic;
-    color: gray;
+    color: #8c8680;
 }
 
 #projects li {
@@ -163,15 +169,16 @@ footer {
 
 #linkscontainer a {
     text-decoration: none;
-    color: gray;
+    color: #8c8680;
+    transition: color 0.2s ease;
 }
 
 #linkscontainer a:hover {
-    color: red;
+    color: #4f6d7a;
 }
 
 .date {
-    color: gray;
+    color: #8c8680;
 }
 
 .expandable-content {
@@ -179,17 +186,24 @@ footer {
 }
 
 .show-more {
-    font-family:  Geneva, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     margin-left: 35px;
-    padding: 5px;
+    padding: 5px 10px;
     font-weight: bold;
-    color: #8b0000;
-    background-color: gainsboro;
+    color: #4f6d7a;
+    background-color: #e8e3dc;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.show-more:hover {
+    background-color: #ddd6cd;
 }
 
 .show-more:active {
-    color: #680101;
+    color: #3a5562;
 }
 
 .gallery {
@@ -200,15 +214,15 @@ footer {
 }
 
 .gallery img {
-    width: 100%;               /* Take up full width of the grid cell */
-    height: 300px;             /* Fixed height for all images */
-    object-fit: cover;         /* Crop the image to fit the container */
-    border-radius: 5px;        /* Optional: rounded corners */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
     transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
-    transform: scale(1.05); /* Add zoom effect on hover */
+    transform: scale(1.05);
 }
 
 .icon-wrapper {
@@ -217,7 +231,7 @@ footer {
     justify-content: center;
     vertical-align: middle;
   }
-  
+
   .icon {
     width: 2em;
     height: 2em;
@@ -233,12 +247,12 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    
+
     main {
         display: flex;
         flex-direction: column;
     }
-    
+
     .navbar {
         position: unset;
         height: fit-content;
@@ -250,18 +264,43 @@ footer {
     }
 
     .photocontainer {
-        margin-left: none;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 100px auto;
+        column-gap: 10px;
+        row-gap: 0;
         align-items: center;
-        justify-items: center;
-        row-gap: 10px;
+        justify-content: start;
+        width: 100%;
     }
 
     .photocontainer img {
         width: 100px;
         height: 100px;
-        border-radius: 5px;
+        border-radius: 8px;
+        grid-row: 1 / 3;
+        grid-column: 1;
+        margin-left: 0;
+    }
+
+    .photocontainer h1 {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .photocontainer .pronunciation {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .photocontainer hr {
+        grid-column: 1 / -1;
+        margin-top: 10px;
     }
 
     .optionscontainer {
@@ -269,6 +308,7 @@ footer {
         margin-left: none;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
         margin-top: 10px;
         margin-bottom: 20px;
     }
