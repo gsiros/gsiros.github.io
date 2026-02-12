@@ -18,6 +18,30 @@
     <link rel="icon" type="image/png" href="icon.png">
     <script src="https://kit.fontawesome.com/c82bcd8173.js" crossorigin="anonymous"></script>
     <script>
+  function highlightPub(id) {
+    const el = document.getElementById(id);
+    if (el && el.closest('#publications')) {
+      el.classList.remove('highlight');
+      void el.offsetWidth; // reflow to restart animation
+      el.classList.add('highlight');
+    }
+  }
+
+  // Highlight publication on anchor click
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (link) {
+      const id = link.getAttribute('href').slice(1);
+      setTimeout(() => highlightPub(id), 400);
+    }
+  });
+
+  // Highlight publication if page loads with a hash
+  if (location.hash) {
+    const id = location.hash.slice(1);
+    setTimeout(() => highlightPub(id), 500);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     // Expandable sections
     document.querySelectorAll('section').forEach(section => {
