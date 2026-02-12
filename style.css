@@ -170,6 +170,15 @@ body {
     margin-left: 4px;
 }
 
+@keyframes pub-highlight {
+    0%   { background-color: #d4e6f1; border-left-color: #2980b9; }
+    100% { background-color: #f0ece7; border-left-color: #4f6d7a; }
+}
+
+#publications li.highlight {
+    animation: pub-highlight 2s ease-out;
+}
+
 #updateinfo {
     font-size: small;
     font-style: italic;
