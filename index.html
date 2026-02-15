@@ -298,13 +298,16 @@
             The rise of AI has revolutionized the software landscape by augmenting and replacing traditional decision-making mechanisms with AI Agents that reason, plan, and act on behalf of the user. This <i>metamorphosis</i> in software design has transformed the security landscape in equal measure, introducing attack surfaces that were previously non-existent: <b>agents that ingest untrusted content, make consequential decisions, and interact with other systems</b>, all without the human judgment that traditional defenses were built to rely on.
           </p>
           <p>
-            My research develops both offensive and defensive security frameworks for AI agentic systems. On the offensive side, I have developed an <a href="#muzzle-pub">automated framework</a> that discovers indirect prompt injection attacks against web-browsing agents by identifying injection surfaces along an agent's trajectory and synthesizing context-aware adversarial payloads through execution feedback. This has uncovered dozens of end-to-end attacks, including the first demonstrated cross-application prompt injections.
+            My research develops both offensive and defensive security frameworks for AI systems. On the offensive side, I have developed an <a href="#muzzle-pub">automated framework</a> that discovers indirect prompt injection attacks against web-browsing agents by identifying injection surfaces along an agent's trajectory and synthesizing context-aware adversarial payloads through execution feedback. This has uncovered dozens of end-to-end attacks, including the first demonstrated cross-application prompt injections.
           </p>
           <p>
             On the defensive side, I have proposed a scalable <a href="#saga-pub">security architecture</a> for governing multi-agent systems, introducing a cryptographic mechanism for formally verified access control over agent-to-agent interactions with minimal performance overhead.
-          </p>    
+          </p>
           <p>
-            Together, these works represent a unified offensive-defensive approach to AI security: uncovering how AI systems can be compromised, and building the foundations to prevent it.
+            Previously, I have also studied the resilience of Federated Learning systems to poisoning attacks in both decentralized and centralized environments. My findings highlighted the <a href="#p2pfl-pub">vulnerability of peer-to-peer network topologies</a> to adversarial presence and analyzed the effectiveness of existing defenses against poisoning attacks. Additionally, I proposed a <a href="#drop-pub">novel defense mechanism</a> that utilizes knowledge distillation to mitigate the impact of poisoned updates on the global model.
+          </p>
+          <p>
+            Together, these works represent a holistic approach to AI security: uncovering how AI systems can be compromised, and building the foundations to prevent it.
           </p>
         </section>
         
@@ -323,13 +326,13 @@
               <br>Network and Distributed System Security (NDSS) Symposium, <i class="date">Apr 2025</i>
               <span class="pub-links">[<a href="https://arxiv.org/abs/2504.21034" target="_blank">PDF</a>]</span>
             </li>
-            <li>
+            <li id="drop-pub">
               <i><b>"DROP: Poison Dilution via Knowledge Distillation for Federated Learning"</b></i>
               <br><b><u>G. Syros</u></b>, A. Suri, F. Koushanfar, C. Nita-Rotaru, A. Oprea
               <br>preprint, <i class="date">Feb 2024</i>
               <span class="pub-links">[<a href="https://arxiv.org/abs/2502.07011" target="_blank">PDF</a>]</span>
             </li>
-            <li>
+            <li id="p2pfl-pub">
               <i><b>"Backdoor Attacks in Peer-to-Peer Federated Learning"</b></i>
               <br><b><u>G. Syros</u></b>, G. Yar, S. Boboila, C. Nita-Rotaru, A. Oprea
               <br>ACM Transactions on Privacy and Security (TOPS), <i class="date">Sep 2024</i>
