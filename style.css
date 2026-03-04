@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 11pt;
-    background-color: #f8f5f0;
+    background-color: #ffffff;
     color: #363636;
 }
 
@@ -155,9 +155,12 @@ body {
 #publications ul {
     list-style-type: none;
     padding-left: 0;
+    width: fit-content;
 }
 
 #publications li {
+    width: 100%;
+    box-sizing: border-box;
     background-color: #f0ece7;
     padding: 14px 18px;
     border-left: 3px solid #4f6d7a;
