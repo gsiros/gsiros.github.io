@@ -1,3 +1,15 @@
+/* Back to top */
+.back-to-top {
+    color: #4f6d7a;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.back-to-top:hover {
+    color: #6a8fa0;
+}
+
 /* Active nav link (current page) */
 .optionscontainer a.nav-active {
     border-left-color: #c9a84c;
