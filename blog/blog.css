@@ -1,0 +1,121 @@
+/* Active nav link (current page) */
+.optionscontainer a.nav-active {
+    border-left-color: #c9a84c;
+    background-color: #3d4156;
+}
+
+@media screen and (max-width: 800px) {
+    .optionscontainer a.nav-active {
+        border-left-color: transparent;
+        border-bottom-color: #c9a84c;
+        background-color: #3d4156;
+    }
+}
+
+/* Blog post list */
+.infocontainer .blog-list {
+    list-style-type: none;
+    padding-left: 0;
+    width: fit-content;
+}
+
+.infocontainer .blog-post-card {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f0ece7;
+    padding: 14px 18px;
+    border-left: 3px solid #4f6d7a;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.blog-post-title {
+    font-size: 13pt;
+    font-weight: bold;
+    text-decoration: none;
+    color: #2d3142;
+    transition: color 0.2s ease;
+}
+
+.blog-post-title:hover {
+    color: #4f6d7a;
+}
+
+.blog-post-meta {
+    margin-top: 2px;
+    margin-bottom: 6px;
+}
+
+.blog-post-excerpt {
+    margin: 0;
+    color: #5a5550;
+}
+
+/* Post page styles */
+.blog-post-body {
+    max-width: 680px;
+    line-height: 1.75;
+}
+
+.blog-post-body h1 {
+    color: #2d3142;
+    margin-bottom: 4px;
+}
+
+.blog-post-body .post-date {
+    color: #8c8680;
+    font-style: italic;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.blog-post-body p {
+    margin-bottom: 1.2em;
+}
+
+.blog-post-body a {
+    color: #4f6d7a;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.blog-post-body a:hover {
+    color: #6a8fa0;
+}
+
+.blog-post-body pre {
+    background-color: #f0ece7;
+    border-left: 3px solid #4f6d7a;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    overflow-x: auto;
+    font-size: 10pt;
+}
+
+.blog-post-body code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 10pt;
+    background-color: #f0ece7;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.blog-post-body pre code {
+    background: none;
+    padding: 0;
+}
+
+.blog-back-link {
+    display: inline-block;
+    margin-bottom: 28px;
+    color: #4f6d7a;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.blog-back-link:hover {
+    color: #6a8fa0;
+}
