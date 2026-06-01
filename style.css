@@ -340,18 +340,25 @@ footer {
 }
 
 .icon-wrapper {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-  }
+    display: inline;
+}
 
-  .icon {
+.icon {
     width: 2em;
     height: 2em;
     object-fit: contain;
     vertical-align: middle;
-  }
+}
+
+.industry-icon {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -0.1em;
+}
 
 @media screen and (max-width: 1150px) {
     .infocontainer {
