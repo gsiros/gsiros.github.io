@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT29TCVEV4"></script>
@@ -10,565 +10,157 @@
 
       gtag('config', 'G-LT29TCVEV4');
     </script>
+    <script>document.documentElement.classList.add('js');</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Georgios Syros</title>
     <meta name="description" content="Georgios Syros">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
+    <link rel="stylesheet" href="style.css?v=20260930g">
     <link rel="icon" type="image/png" href="icon.png">
     <script src="https://kit.fontawesome.com/c82bcd8173.js" crossorigin="anonymous"></script>
-    <script>
-  function highlightPub(id) {
-    const el = document.getElementById(id);
-    if (el && el.closest('#publications')) {
-      el.classList.remove('highlight');
-      void el.offsetWidth; // reflow to restart animation
-      el.classList.add('highlight');
-    }
-  }
-
-  // Highlight publication on anchor click
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href^="#"]');
-    if (link) {
-      const id = link.getAttribute('href').slice(1);
-      setTimeout(() => highlightPub(id), 400);
-    }
-  });
-
-  // Highlight publication if page loads with a hash
-  if (location.hash) {
-    const id = location.hash.slice(1);
-    setTimeout(() => highlightPub(id), 500);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    // Expandable sections
-    document.querySelectorAll('section').forEach(section => {
-      const btn = section.querySelector('.show-more');
-      const content = section.querySelector('.expandable-content');
-      if (!btn || !content) return;
-
-      const isHidden = getComputedStyle(content).display === 'none';
-      btn.textContent = isHidden ? 'Show More' : 'Show Less';
-
-      btn.addEventListener('click', () => {
-        const hidden = getComputedStyle(content).display === 'none';
-        content.style.display = hidden ? 'block' : 'none';
-        btn.textContent = hidden ? 'Show Less' : 'Show More';
-      });
-    });
-
-    // Photo carousel
-    const gallery = document.querySelector('.gallery');
-    if (!gallery) return;
-    const track = gallery.querySelector('.gallery-track');
-    const slides = gallery.querySelectorAll('.gallery-slide');
-    const prevBtn = gallery.querySelector('.gallery-prev');
-    const nextBtn = gallery.querySelector('.gallery-next');
-    const dotsContainer = gallery.querySelector('.gallery-dots');
-    let currentPage = 0;
-
-    function getPerPage() {
-      return window.innerWidth > 800 ? 2 : 1;
-    }
-
-    function getTotalPages() {
-      return Math.ceil(slides.length / getPerPage());
-    }
-
-    function buildDots() {
-      dotsContainer.innerHTML = '';
-      const total = getTotalPages();
-      for (let i = 0; i < total; i++) {
-        const dot = document.createElement('button');
-        dot.classList.add('gallery-dot');
-        if (i === currentPage) dot.classList.add('active');
-        dot.setAttribute('aria-label', 'Go to page ' + (i + 1));
-        dot.addEventListener('click', () => goTo(i));
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function goTo(index) {
-      const totalPages = getTotalPages();
-      currentPage = ((index % totalPages) + totalPages) % totalPages;
-      track.style.transform = 'translateX(-' + (currentPage * 100) + '%)';
-      dotsContainer.querySelectorAll('.gallery-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === currentPage);
-      });
-    }
-
-    buildDots();
-    prevBtn.addEventListener('click', () => goTo(currentPage - 1));
-    nextBtn.addEventListener('click', () => goTo(currentPage + 1));
-
-    window.addEventListener('resize', () => {
-      const totalPages = getTotalPages();
-      if (currentPage >= totalPages) currentPage = totalPages - 1;
-      buildDots();
-      goTo(currentPage);
-    });
-  });
-</script>
+    <script src="script.js?v=20260930g" defer></script>
   </head>
   <body>
-    <main>
-      <div class="navbar">
-        <div class="quote">“An expert is a person who has made all the mistakes that can be made in a very narrow field.”<br><div>-Niels Bohr</div></div>
-        <div class="photocontainer">
+    <header class="site-header">
+      <div class="wrap">
+        <div class="masthead">
+          <a class="site-title" href="./">Georgios Syros</a>
+          <span class="pronunciation">(Y<u>o</u>r-ghos S<u>ee</u>-ross) <a href="https://www.youtube.com/shorts/B3Nlj-pnb4g" target="_blank" aria-label="Pronunciation" title="Pronunciation"><i class="fa-solid fa-volume-high"></i></a></span>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <a href="./" aria-current="page">About</a>
+          <a href="research.html">Research</a>
+          <a href="publications.html">Publications</a>
+          <a href="talks.html">Talks</a>
+          <a href="teaching.html">Teaching &amp; Service</a>
+          <a href="software.html">Software</a>
+          <a href="more.html">More</a>
+          <!-- <a href="blog/">Blog</a> -->
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+
+      <section class="profile" id="about">
+        <div class="profile-photo">
           <img src="pfps/georgios.jpg" alt="Georgios Syros (Γιώργος Σύρος)">
-          <h1>Georgios Syros</h1>
-          <span class="pronunciation">(Y<u>o</u>r-ghos S<u>ee</u>-ross) <a href="https://www.youtube.com/shorts/B3Nlj-pnb4g" target="_blank"><i class="fa-solid fa-volume-high"></i></a></span>
-        </div>
-        <div class="navbar-divider"><hr style="border: 0; height: 1px; width: 100%; background: #4a4e5c; margin-top: 15px;"></div>
-        <div class="optionscontainer">
-          <a href="#about">About</a>
-          <!-- <a href="#news">News</a> -->
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <!-- <a href="#teaching">Teaching</a> -->
-          <!-- <a href="#talks">Talks</a> -->
-          <!-- <a href="#software">Software</a> -->
-          <a href="#contact">Contact</a>
-          <!-- <a href="/blog/">Blog</a> -->
-        </div>
-      </div>
-
-      <div class="infocontainer">
-
-        <footer>
-          <div id="linkscontainer">
-            <a href="https://georgios.wiki/GEORGIOS_SYROS_CV.pdf" target="_blank"><i class="fa-solid fa-file-lines fa-2x"></i></a>
-            <a href="https://scholar.google.com/citations?user=QlwUVeIAAAAJ&hl=en&oi=ao" target="_blank"><i class="fa-solid fa-graduation-cap fa-2x"></i></a>
-            <a href="https://github.com/gsiros" target="_blank"><i class="fa-brands fa-github fa-2x"></i></a>
-            <a href="https://www.linkedin.com/in/gsiros/" target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+          <div class="social">
+            <a href="https://georgios.wiki/GEORGIOS_SYROS_CV.pdf" target="_blank" aria-label="CV" title="CV"><i class="fa-solid fa-file-lines"></i></a>
+            <a href="https://scholar.google.com/citations?user=QlwUVeIAAAAJ&hl=en&oi=ao" target="_blank" aria-label="Google Scholar" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+            <a href="https://github.com/gsiros" target="_blank" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/gsiros/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
           </div>
-        </footer>
+        </div>
 
-        <section id="about">
+        <div class="profile-text">
           <h2>About</h2>
-          <p>I am a <b>Computer Science</b> PhD candidate at <b>Northeastern University, Boston</b>. I'm interested in computer security, with a focus on Artificial Intelligence as a key element within a broader pipeline of components in software systems.
-          </p>
-      
-          <p>
-              I am a member of the <a href="http://nds2.ccs.neu.edu/">NDS2 Lab</a> and I am fortunate to be under the joint supervision of <a href="https://www.ccs.neu.edu/home/alina/" target="_blank">Alina Oprea</a> and <a href="https://cnitarot.github.io" target="_blank">Cristina Nita-Rotaru</a>.
-          </p>
+          <p>I am a <b>Computer Science</b> PhD candidate at <b>Northeastern University, Boston</b>. I'm interested in computer security, with a focus on Artificial Intelligence as a key element within a broader pipeline of components in software systems.</p>
 
-          <p>
-              I have held multiple research positions in both academia and industry, most recently at <b><a href="https://www.microsoft.com/en-us/research/" target="_blank">Microsoft Research <span class="icon-wrapper"><img src="microsoft.svg" alt="Microsoft Logo" class="industry-icon"></span></a></b> and <b><a href="https://learn.microsoft.com/en-us/security/ai-red-team/" target="_blank">Microsoft's AI Red Team</a></b> as a research intern. I have also been a researcher for the <b><a href="https://cyber.umd.edu/" target="_blank">Maryland Cybersecurity Center</a></b> and the <b><a href="https://mm.aueb.gr" target="_blank">Mobile Multimedia Lab</a></b>.
-          </p>
-        </section>
-      
-    
-        <section id="news">
-          <h2>News</h2>
-          <ul>
+          <p>I am a member of the <a href="http://nds2.ccs.neu.edu/">NDS2 Lab</a> and I am fortunate to be under the joint supervision of <a href="https://www.ccs.neu.edu/home/alina/" target="_blank">Alina Oprea</a> and <a href="https://cnitarot.github.io" target="_blank">Cristina Nita-Rotaru</a>.</p>
 
-            <li>
-              <i class="date">Jun 2026</i>
-              <br>
-              Our paper, <b><i>"MUZZLE: Adaptive Agentic Red-Teaming of Web Agents Against Indirect Prompt Injection Attacks"</i></b>, was accepted to the <b>2026 USENIX Security Symposium</b>! See you in Baltimore, MD!
-            </li>
+          <p>I have held multiple research positions in both academia and industry, most recently at <b><a href="https://www.microsoft.com/en-us/research/" target="_blank">Microsoft Research <span class="icon-wrapper"><img src="microsoft.svg" alt="Microsoft Logo" class="industry-icon"></span></a></b> and <b><a href="https://learn.microsoft.com/en-us/security/ai-red-team/" target="_blank">Microsoft's AI Red Team</a></b> as a research intern. I have also been a researcher for the <b><a href="https://cyber.umd.edu/" target="_blank">Maryland Cybersecurity Center</a></b> and the <b><a href="https://mm.aueb.gr" target="_blank">Mobile Multimedia Lab</a></b>.</p>
+        </div>
+      </section>
 
-            <br>
+      <section id="news">
+        <h2>News</h2>
+        <ul class="dated">
+          <li>
+            <span class="date">Jun 2026</span>
+            <div>Our paper, <b><i>"MUZZLE: Adaptive Agentic Red-Teaming of Web Agents Against Indirect Prompt Injection Attacks"</i></b>, was accepted to the <b>2026 USENIX Security Symposium</b>! See you in Baltimore, MD!</div>
+          </li>
+          <li>
+            <span class="date">Jun 2026</span>
+            <div>I joined <b><a href="https://www.microsoft.com/en-us/research/" target="_blank">Microsoft Research <span class="icon-wrapper"><img src="microsoft.svg" alt="Microsoft Logo" class="industry-icon"></span></a></b> and <b><a href="https://learn.microsoft.com/en-us/security/ai-red-team/" target="_blank">Microsoft's AI Red Team</a></b> as a Research Intern!</div>
+          </li>
+          <li>
+            <span class="date">Mar 2026</span>
+            <div>I will be speaking at the <b><a href='https://nesd.cs.umass.edu/' target='_blank'>New England Security Day 2026</a></b> at UMass, Amherst.</div>
+          </li>
+        </ul>
 
-            <li>
-              <i class="date">Jun 2026</i>
-              <br>
-              I joined <b><a href="https://www.microsoft.com/en-us/research/" target="_blank">Microsoft Research <span class="icon-wrapper"><img src="microsoft.svg" alt="Microsoft Logo" class="industry-icon"></span></a></b> and <b><a href="https://learn.microsoft.com/en-us/security/ai-red-team/" target="_blank">Microsoft's AI Red Team</a></b> as a Research Intern!
-            </li>
+        <ul class="dated" id="news-more" hidden>
+          <li>
+            <span class="date">Aug 2025</span>
+            <div>Our paper, <b><i>"SAGA: A Security Architecture for Governing AI Agentic Systems"</i></b>, was accepted to the <b>2026 Network and Distributed System Security (NDSS) Symposium</b>! See you in San Diego, CA!</div>
+          </li>
+          <li>
+            <span class="date">May 2025</span>
+            <div>I will be speaking at the <b>Khoury Security and Privacy Day</b> at Northeastern University, Boston.</div>
+          </li>
+          <li>
+            <span class="date">Feb 2025</span>
+            <div>I will be speaking at the <b><a href='https://khoury-srg.github.io/nesd25/' target='_blank'>New England Systems Day 2025</a></b> at Northeastern University, Boston.</div>
+          </li>
+          <li>
+            <span class="date">Jul 2024</span>
+            <div>Our paper; <b><i>"Backdoor Attacks in Peer-to-Peer Federated Learning"</i></b> was published in the <b>ACM Transactions on Privacy and Security</b> (TOPS) journal.</div>
+          </li>
+          <li>
+            <span class="date">March 2024</span>
+            <div>I will be attending the <b>New England Security Day 2024</b> at UConn, CT. Come say hi!</div>
+          </li>
+          <li>
+            <span class="date">Jul 2023</span>
+            <div>I successfully completed my undergraduate studies at the <b>Athens University of Economics and Business</b>.</div>
+          </li>
+          <li>
+            <span class="date">Mar 2023</span>
+            <div>This Fall I will be joining the <a href="http://nds2.ccs.neu.edu/">NDS2 Lab</a> at <b>Northeastern University, Boston</b> as a PhD student!</div>
+          </li>
+          <li>
+            <span class="date">Sep 2022</span>
+            <div>Our paper; <b><i>"Decentralized NFT-based Evolvable Games"</i></b> was published at the <b>4th Conference on Blockchain Research and Applications for Innovative Networks and Services</b> (BRAINS).</div>
+          </li>
+          <li>
+            <span class="date">Aug 2022</span>
+            <div>I attended the <b>31st USENIX Security Symposium</b> in Boston, MA.</div>
+          </li>
+          <li>
+            <span class="date">Aug 2022</span>
+            <div>I joined Tudor Dumitraș' group for my Summer@MC2 <b>internship</b> on Cybersecurity at the <b>University of Maryland, College Park</b>.</div>
+          </li>
+          <li>
+            <span class="date">Jun 2022</span>
+            <div>Received <b>Honors</b> for high academic performance and distinctions, awarded by the <b>Department of Informatics</b>, <b>School of Information Sciences and Technology</b>, <b>AUEB</b>.</div>
+          </li>
+          <li>
+            <span class="date">May 2022</span>
+            <div>Awarded the HUAWEI Hellas Enterprise <b>Fellowship</b> for excellent performance and distinctions.</div>
+          </li>
+          <li>
+            <span class="date">May 2022</span>
+            <div>Gave a speech at <b>HUAWEI Hellas Enterprise</b> 2022 scholarship ceremony regarding my experience in the <a href="https://www.huawei.com/minisite/seeds-for-the-future/" target="_blank"> <b><i>Seeds for the Future</i></b></a> program. <span class="links">[<a href="https://e.huawei.com/gr/news/gr/2022-huawei-seeds-for-the-future-scholarship" target="_blank">Press Release</a>]</span></div>
+          </li>
+        </ul>
+        <button class="show-more" type="button" aria-controls="news-more" aria-expanded="false">Show More</button>
+      </section>
 
-            <br>
-
-            <li>
-              <i class="date">Mar 2026</i>
-              <br>
-              I will be speaking at the <b><a href='https://nesd.cs.umass.edu/' target='_blank'>New England Security Day 2026</a></b> at UMass, Amherst.
-            </li>
-
-            <div class="expandable-content">
-
-              <br>
-
-              <li>
-                <i class="date">Aug 2025</i>
-                <br>
-                Our paper, <b><i>"SAGA: A Security Architecture for Governing AI Agentic Systems"</i></b>, was accepted to the <b>2026 Network and Distributed System Security (NDSS) Symposium</b>! See you in San Diego, CA!
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">May 2025</i>
-                <br>
-                I will be speaking at the <b>Khoury Security and Privacy Day</b> at Northeastern University, Boston.
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Feb 2025</i>
-                <br>
-                I will be speaking at the <b><a href='https://khoury-srg.github.io/nesd25/' target='_blank'>New England Systems Day 2025</a></b> at Northeastern University, Boston.
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Jul 2024</i>
-                <br>
-                Our paper; <b><i>"Backdoor Attacks in Peer-to-Peer Federated Learning"</i></b> was published in 
-                the <b>ACM Transactions on Privacy and Security</b> (TOPS) journal.
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">March 2024</i>
-                <br>
-                I will be attending the <b>New England Security Day 2024</b> at UConn, CT. Come say hi!
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Jul 2023</i>
-                <br>
-                I successfully completed my undergraduate studies at the <b>Athens University of Economics and Business</b>.  
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Mar 2023</i>
-                <br>
-                This Fall I will be joining the <a href="http://nds2.ccs.neu.edu/">NDS2 Lab</a> at <b>Northeastern University, Boston</b> as a PhD student!  
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Sep 2022</i>
-                <br>
-                Our paper; <b><i>"Decentralized NFT-based Evolvable Games"</i></b> was published at 
-                the <b>4th Conference on Blockchain Research and Applications for Innovative Networks and Services</b> (BRAINS).
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Aug 2022</i>
-                <br>
-                I attended the <b>31st USENIX Security Symposium</b> in Boston, MA. 
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Aug 2022</i>
-                <br>
-                I joined Tudor Dumitraș' group for my Summer@MC2 <b>internship</b> on Cybersecurity at the <b>University of Maryland, College Park</b>. 
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">Jun 2022</i>
-                <br>
-                Received <b>Honors</b> for high academic performance and distinctions, awarded by the <b>Department of Informatics</b>, <b>School of Information Sciences and Technology</b>, <b>AUEB</b>. 
-              </li>
-
-              <br>
-              
-              <li>
-                <i class="date">May 2022</i>
-                <br>
-                Awarded the HUAWEI Hellas Enterprise <b>Fellowship</b> for excellent performance and distinctions. 
-              </li>
-
-              <br>
-
-              <li>
-                <i class="date">May 2022</i>
-                <br>
-                Gave a speech at <b>HUAWEI Hellas Enterprise</b> 2022 scholarship ceremony regarding my experience in the <a href="https://www.huawei.com/minisite/seeds-for-the-future/" target="_blank"> <b><i>Seeds for the Future</i></b></a> program. 
-                [<a href="https://e.huawei.com/gr/news/gr/2022-huawei-seeds-for-the-future-scholarship" target="_blank">Press Release</a>]
-              </li>
-            </div>
-          </ul>
-          <button class="show-more">Show More</button>
-        </section>
-        
-        <section id="research">
-          <h2>Research</h2>
-          <p>
-            The rise of AI has revolutionized the software landscape by augmenting and replacing traditional decision-making mechanisms with AI Agents that reason, plan, and act on behalf of the user. This <i>metamorphosis</i> in software design has transformed the security landscape in equal measure, introducing attack surfaces that were previously non-existent: <b>agents that ingest untrusted content, make consequential decisions, and interact with other systems</b>, all without the human judgment that traditional defenses were built to rely on.
-          </p>
-          <p>
-            My research develops both offensive and defensive security frameworks for AI systems. On the offensive side, I have developed an <a href="#muzzle-pub">automated framework</a> that discovers indirect prompt injection attacks against web-browsing agents by identifying injection surfaces along an agent's trajectory and synthesizing context-aware adversarial payloads through execution feedback. This has uncovered dozens of end-to-end attacks, including the first demonstrated cross-application prompt injections.
-          </p>
-          <p>
-            On the defensive side, we have proposed a scalable <a href="#saga-pub">security architecture</a> for governing multi-agent systems, introducing a cryptographic mechanism for formally verified access control over agent-to-agent interactions with minimal performance overhead.
-          </p>
-          <p>
-            Previously, I have also studied the resilience of Federated Learning systems to poisoning attacks in both decentralized and centralized environments. My findings highlighted the <a href="#p2pfl-pub">vulnerability of peer-to-peer network topologies</a> to adversarial presence and analyzed the effectiveness of existing defenses against poisoning attacks. Additionally, I proposed a <a href="#drop-pub">novel defense mechanism</a> that utilizes knowledge distillation to mitigate the impact of poisoned updates on the global model.
-          </p>
-          <p>
-            Together, these works represent a holistic approach to AI security: uncovering how AI systems can be compromised, and building the foundations to prevent it.
-          </p>
-        </section>
-        
-        <section id="publications">
-          <h2>Publications</h2>
-          <ul>
-            <li id="muzzle-pub">
-              <i><b>"MUZZLE: Adaptive Agentic Red-Teaming of Web Agents Against Indirect Prompt Injection Attacks"</b></i>
-              <br><b><u>G. Syros</u></b>, E. Rose, B. Grinstead, C. Kerschbaumer, W. Robertson, C. Nita-Rotaru, A. Oprea
-              <br>USENIX Security Symposium, <i class="date">Aug 2026</i>
-              <span class="pub-links">[<a href="https://arxiv.org/abs/2602.09222" target="_blank">PDF</a>]</span>
-            </li>
-            <li id="saga-pub">
-              <i><b>"SAGA: A Security Architecture for Governing AI Agentic Systems"</b></i>
-              <br><b><u>G. Syros</u></b>, A. Suri, J. Ginesin, C. Nita-Rotaru, A. Oprea
-              <br>Network and Distributed System Security (NDSS) Symposium, <i class="date">Feb 2026</i>
-              <span class="pub-links">[<a href="https://arxiv.org/abs/2504.21034" target="_blank">PDF</a>]</span>
-              <span class="pub-links">[<a href="https://www.youtube.com/watch?v=NZvfPHAciyE" target="_blank"><i class="fa-brands fa-youtube"></i></a>]</span>
-            </li>
-            <li id="drop-pub">
-              <i><b>"DROP: Poison Dilution via Knowledge Distillation for Federated Learning"</b></i>
-              <br><b><u>G. Syros</u></b>, A. Suri, F. Koushanfar, C. Nita-Rotaru, A. Oprea
-              <br>preprint, <i class="date">Feb 2024</i>
-              <span class="pub-links">[<a href="https://arxiv.org/abs/2502.07011" target="_blank">PDF</a>]</span>
-            </li>
-            <li id="p2pfl-pub">
-              <i><b>"Backdoor Attacks in Peer-to-Peer Federated Learning"</b></i>
-              <br><b><u>G. Syros</u></b>, G. Yar, S. Boboila, C. Nita-Rotaru, A. Oprea
-              <br>ACM Transactions on Privacy and Security (TOPS), <i class="date">Sep 2024</i>
-              <span class="pub-links">[<a href="https://arxiv.org/abs/2301.09732" target="_blank">PDF</a>]</span>
-            </li>
-            <li>
-              <i><b>"Decentralized NFT-based Evolvable Games"</b></i>
-              <br>C. Karapapas, <b><u>G. Syros</u></b>, I. Pittaras, G. C. Polyzos
-              <br>Conference on Blockchain Research and Applications for Innovative Networks and Services (BRAINS), <i class="date">Sep 2022</i>
-              <span class="pub-links">[<a href="https://mm.aueb.gr/publications/3c8138b1-acde-45af-8bc6-3b83cd102361.pdf" target="_blank">PDF</a>]</span>
-            </li>
-          </ul>
-        </section>
-
-        <section id="teaching">
-          <h2>Teaching</h2>
-          <ul>
-            <li>
-              <b>CS3650: Computer Systems</b> <i class="date">Fall 2025</i>
-              <br>
-              Teaching Assistant at Northeastern University, Boston.
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <b>CS6620: Fundamentals of Cloud Computing</b> <i class="date">Summer 2025</i>
-              <br>
-              Teaching Assistant at Northeastern University, Online.
-            </li>
-          </ul>
-        </section>
-
-        <section id="talks">
-          <h2>Talks</h2>
-          <ul>
-            <li><i><b>"MUZZLE: Adaptive Agentic Red-Teaming of Web Agents Against Indirect Prompt Injection Attacks"</b></i>
-            <br>
-            <i>@ Khoury Security and Privacy Day</i>, Northeastern University, Boston <i class="date">Apr 2026</i></li>
-          </ul>
-          <ul>
-            <li><i><b>"Toward Automated Holistic Red-Teaming of Web Agents"</b></i>
-            <br>
-            <i>@ New England Security Day</i>, UMass, Amherst <i class="date">Mar 2026</i></li>
-          </ul>
-          <ul>
-            <li><i><b>"SAGA: A Security Architecture for Governing AI Agentic Systems"</b></i><span class="pub-links">[<a href="https://www.youtube.com/watch?v=NZvfPHAciyE" target="_blank">Video</a>]</span>
-            <br>
-            <i>@ Network and Distributed System Security (NDSS) Symposium 2026</i>, San Diego, CA <i class="date">Feb 2026</i></li>
-          </ul>
-          <ul>
-            <li><i><b>"From Autonomy to Accountability: Securing Agentic AI Systems with SAGA"</b></i>
-            <br>
-            <i>@ Khoury Security and Privacy Day</i>, Northeastern University, Boston <i class="date">May 2025</i></li>
-          </ul>
-          <ul>
-            <li><i><b>"DROP: Poison Dilution via Knowledge Distillation for Federated Learning"</b></i>
-            <br>
-            <i>@ NESysDay'25</i>, Northeastern University, Boston <i class="date">Feb 2025</i></li>
-          </ul>
-        </section>
-
-        <section id="service">
-          <h2>Academic Service</h2>
-          Previously, I have served at the following venues:
-          <p><i>Program Committee</i></p>
-            <ul>
-              <li><a href="https://www.caisconf.org/" target="_blank">ACM Conference on AI and Agentic Systems (CAIS 2026)</a></li>
-              <li><a href="https://aisec.cc/" target="_blank">ACM Workshop on Artificial Intelligence and Security (AI Sec'26)</a></li>
-            </ul>
-          <p><i>Reviewer</i></p>
-            <ul>
-              <li>USENIX Security Symposium (<b>USENIX SEC</b>)</li>
-              <li>ACM Conference on Computer and Communications Security (<b>CCS</b>)</li>
-              <li>ACM Transactions on Privacy and Security (<b>TOPS</b>), <i>Journal</i></li>
-              <li>IEEE Security & Privacy, <i>Journal</i></li>
-            </ul>
-        </section>
-
-        <section id="press">
-          <h2>In the Press</h2>
-          <ul>
-            <li><i><b>"Security of LLM Agents"</b></i> [<a href="https://www.khoury.northeastern.edu/research_projects/security-of-llm-agents/" target="_blank">source</a>]<br><i>@ Khoury College of Computer Sciences</i>, <i class="date">Sep 2025</i></li>
-          </ul>
-        </section>
-
-        <section id="software">
-          
-          <h2>Software</h2>
-          <ul>
-            <li>
-              <i><b>CookMate; developing an enhanced microwave interface with accessibility features</b></i>
-              <br>
-              <b><u>G. Syros</u></b>, A. Toumazatos, F. Bistas <i class="date">Jun 2023</i> [<a href="https://github.com/gsiros/CookMate/files/11950544/hci_report.pdf" target="_blank">PDF</a>]
-              [<a href="https://github.com/gsiros/CookMate" target="_blank">GitHub</a>]
-            </li>
-
-            <br>
-
-            <li>
-              <i><b>Strabo.io; a real time NLP-backed Greeklish-to-Greek translation keyboard for Android</b></i>
-              <br>
-              <b><u>G. Syros</u></b>, F. Bistas, A. Toumazatos, <i class="date">Jun 2023</i> [<a href="https://github.com/FotiosBistas/Strabo.io" target="_blank">GitHub</a>]
-            </li>
-
-            <br>
-
-            <li>
-              <i><b>TCP throughput over LANs and the Internet</b></i>
-              <br>
-              <b><u>G. Syros</u></b>, A. Toumazatos, F. Bistas <i class="date">Feb 2023</i>
-              [<a href="https://github.com/gsiros/TCP3wput-app/files/10829344/3190193_3190198_3190135.pdf" target="_blank">PDF</a>]
-              [<a href="https://github.com/gsiros/TCP3wput-app" target="_blank">GitHub<sup>1</sup></a>]
-              [<a href="https://github.com/FotiosBistas/Tcp-Throughput-Different-Server-Implementations" target="_blank">GitHub<sup>2</sup></a>]
-            </li>
-
-            <div class="expandable-content">
-
-            <br>
-            
-            <li>
-              <i><b>Vζoom; developing a fast, lightweight video calling web app</b></i>
-              <br>
-              F. Bistas, <b><u>G. Syros</u></b>, A. Toumazatos <i class="date">Jan 2023</i>
-              [<a href="https://github.com/gsiros/WebRTC-service" target="_blank">GitHub</a>]
-            </li>
-
-            <br>
-            
-            <li>
-              <i><b>Simplegram; A simple Pub/Sub distributed messenger app</b></i>
-              <br>
-              <b><u>G. Syros</u></b>, A. Toumazatos, N. Christodoulou, E. Gkritsis <i class="date">Jun 2022</i>
-              [<a href="https://github.com/gsiros/simplegram" target="_blank">GitHub<sup>1</a>]
-              [<a href="https://github.com/gsiros/simplegram-app" target="_blank">GitHub<sup>2</a>]
-            </li>
-
-            <br>
-            
-            <li>
-              <i><b>Machine Learning Algorithms over IMDB's Review database</b></i>
-              <br>
-              <b><u>G. Syros</u></b>, A. Toumazatos, E. Gkritsis <i class="date">Jun 2022</i>
-              [<a href="https://github.com/gsiros/imdb-review-nlp" target="_blank">GitHub</a>]
-            </li>
-
-            <br>
-
-            <li>
-              <i><b>ArachovaWeather - Weather in Arachova</b></i>
-              <br>
-              <b><u>G. Syros</u></b> <i class="date">Apr 2020</i>
-              [<a href="https://play.google.com/store/apps/details?id=com.gsiros.arachovaweather" target="_blank"><i class="fa-brands fa-google-play"></i></a>]
-            </li>
-
-            <br>
-
-            <li>
-              <i><b>C-Calc - Pocket biochemistry calculator</b></i>
-              <br>
-              <b><u>G. Syros</u></b> <i class="date">Nov 2017</i>
-              [<a href="https://play.google.com/store/apps/details?id=com.george2001s.c_calc" target="_blank"><i class="fa-brands fa-google-play"></i></a>]
-            </li>
-
-            <br>
-
-            <li>
-              <i><b>MathsTests - Math quizes</b></i>
-              <br>
-              <b><u>G. Syros</u></b>, E. Syros <i class="date">Nov 2017</i>
-              [<a href="https://play.google.com/store/apps/details?id=com.george2001s.mathstests" target="_blank"><i class="fa-brands fa-google-play"></i></a>]
-            </li>
-            </div>
-          </ul>
-          <button class="show-more">Show More</button>
-        </section>
-
-        <section id="contact">          
-          <h2>Contact</h2>
-          <p>office: <i>2nd floor, 216 Massachusetts Ave, Boston, MA 02115</i></p>
-          <p>email: <a href="mailto:syros.g@northeastern.edu">syros.g <i>at</i> northeastern.edu</a></p>
-        </section>
-
-        <section id="more">
-          <h3>More</h3>
-          I play the guitar, enjoy hiking and I like anything that has an internal combustion engine (particularly 2-wheelers a.k.a. motorcycles). I am also a big supporter of Olympiacos Piraeus <span class="icon-wrapper"><img src="OlympiacosS.F.P.png" alt="Olympiacos CFP" class="icon"></span>.<br><br>I grew up in Arachova, Greece.
-        </section>
-
-        <section id="photos">
-          <div class="gallery">
-            <div class="gallery-track">
-              <div class="gallery-slide">
-                <img src="me_and_alina.jpg" alt="Alina Oprea and I, Cybersecurity and Privacy Institute, Boston, MA">
-                <p class="gallery-caption">Alina Oprea and I, Cybersecurity and Privacy Institute, Boston, MA</p>
-              </div>
-              <div class="gallery-slide">
-                <img src="me_and_tudor.jpeg" alt="Tudor Dumitraș and I, Maryland Cybersecurity Center, College Park, MD">
-                <p class="gallery-caption">Tudor Dumitra&#x219; and I, Maryland Cybersecurity Center, College Park, MD</p>
-              </div>
-              <div class="gallery-slide">
-                <img src="syros_woods.jpeg" alt="Me on Mt. Washington, NH">
-                <p class="gallery-caption">Me on Mt. Washington, NH</p>
-              </div>
-              <div class="gallery-slide">
-                <img src="me_at_huawei.jpeg" alt="Me giving a speech at HUAWEI Hellas Enterprise 2022 scholarship ceremony, Athens, Greece">
-                <p class="gallery-caption">Me giving a speech at HUAWEI Hellas Enterprise 2022 scholarship ceremony, Athens, Greece</p>
-              </div>
-              <div class="gallery-slide">
-                <img src="sef.jpeg" alt="Peace and Friendship Stadium, Piraeus, Greece">
-                <p class="gallery-caption">Peace and Friendship Stadium, Piraeus, Greece</p>
-              </div>
-              <div class="gallery-slide">
-                <img src="motorcycle.jpeg" alt="Me on my motorcycle">
-                <p class="gallery-caption">Me on my motorcycle</p>
-              </div>
-            </div>
-            <button class="gallery-btn gallery-prev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="gallery-btn gallery-next" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
-            <div class="gallery-dots"></div>
-          </div>
-        </section>
-
-        <footer class="site-footer">
-          <p>&copy; 2022 Georgios Syros. Last updated: September 2026.</p>
-        </footer>
-
-      </div>
-
+      <section id="contact">
+        <h2>Contact</h2>
+        <dl class="contact">
+          <dt>office:</dt>
+          <dd><i>2nd floor, 216 Massachusetts Ave, Boston, MA 02115</i></dd>
+          <dt>email:</dt>
+          <dd><a href="mailto:syros.g@northeastern.edu">syros.g <i>at</i> northeastern.edu</a></dd>
+        </dl>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <blockquote class="quote">“An expert is a person who has made all the mistakes that can be made in a very narrow field.”<cite>-Niels Bohr</cite></blockquote>
+        <p>&copy; 2022 Georgios Syros. Last updated: September 2026.</p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,184 +1,126 @@
+/* Blog styles; builds on ../style.css */
+
 /* Footnotes */
 .footnote-divider {
     border: 0;
     height: 1px;
-    background: #ddd6cd;
-    margin: 32px 0 16px;
-    max-width: 680px;
+    background: var(--rule);
+    margin: 2.5rem 0 1rem;
 }
 
 .footnotes {
-    max-width: 680px;
-    padding-left: 20px;
-    font-size: 9pt;
-    color: #5a5550;
+    padding-left: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--muted);
     line-height: 1.6;
 }
 
 .blog-post-body sup a,
 .footnote-back {
-    color: #4f6d7a;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.blog-post-body sup a:hover,
-.footnote-back:hover {
-    color: #6a8fa0;
+    font-family: var(--sans);
+    font-weight: 600;
 }
 
 /* Back to top */
 .back-to-top {
-    color: #4f6d7a;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.back-to-top:hover {
-    color: #6a8fa0;
-}
-
-/* Active nav link (current page) */
-.optionscontainer a.nav-active {
-    border-left-color: #c9a84c;
-    background-color: #3d4156;
-}
-
-@media screen and (max-width: 800px) {
-    .optionscontainer a.nav-active {
-        border-left-color: transparent;
-        border-bottom-color: #c9a84c;
-        background-color: #3d4156;
-    }
+    font-family: var(--sans);
+    font-size: 0.85rem;
 }
 
 /* Blog post list */
-.infocontainer .blog-list {
-    list-style-type: none;
-    padding-left: 0;
-    width: fit-content;
+.blog-list {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
 }
 
-.infocontainer .blog-post-card {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #f0ece7;
-    padding: 14px 18px;
-    border-left: 3px solid #4f6d7a;
-    border-radius: 0 6px 6px 0;
-    margin-bottom: 12px;
-    line-height: 1.6;
+.blog-post-card {
+    padding-block: 1rem;
+    border-top: 1px solid var(--rule);
 }
 
 .blog-post-title {
-    font-size: 13pt;
-    font-weight: bold;
-    text-decoration: none;
-    color: #2d3142;
-    transition: color 0.2s ease;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
 }
 
 .blog-post-title:hover {
-    color: #4f6d7a;
+    color: var(--accent);
 }
 
 .blog-post-meta {
-    margin-top: 2px;
-    margin-bottom: 6px;
+    margin: 0.15rem 0 0.4rem;
 }
 
 .blog-post-excerpt {
     margin: 0;
-    color: #5a5550;
+    color: var(--muted);
 }
 
-/* Post page styles */
-.blog-post-body {
-    max-width: 680px;
-    line-height: 1.75;
-}
-
+/* Post page */
 .blog-post-body h1 {
-    color: #2d3142;
-    margin-bottom: 4px;
+    font-size: 2rem;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.35rem;
 }
 
 .blog-post-body .post-date {
-    color: #8c8680;
-    font-style: italic;
-    margin-bottom: 24px;
     display: block;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
 }
 
 .blog-post-body p {
     margin-bottom: 1.2em;
 }
 
-.blog-post-body a {
-    color: #4f6d7a;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.blog-post-body a:hover {
-    color: #6a8fa0;
-}
-
 .blog-post-body pre {
-    background-color: #eef0f2;
-    border-radius: 6px;
-    padding: 16px 20px;
+    background: var(--highlight);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
     overflow-x: auto;
-    font-size: 10pt;
+    font-size: 0.85rem;
     line-height: 1.6;
 }
 
+.blog-post-body code {
+    font-family: var(--mono);
+    font-size: 0.88em;
+    background: var(--rule);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+}
+
 .blog-post-body pre code {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    color: #2d3142;
     background: none;
     padding: 0;
 }
 
-.blog-post-body code {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-size: 10pt;
-    background-color: #eae6e0;
-    color: #2d3142;
-    padding: 1px 5px;
-    border-radius: 3px;
-}
-
 /* Post figure / image */
 .post-figure {
-    margin: 28px 0;
+    margin: 2rem 0;
 }
 
 .post-figure img {
-    width: 100%;
-    border-radius: 6px;
     display: block;
+    width: 100%;
+    border-radius: 3px;
 }
 
 .post-figure figcaption {
-    margin-top: 8px;
-    font-size: 9pt;
-    color: #8c8680;
-    font-style: italic;
+    margin-top: 0.5rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
     text-align: center;
 }
 
 .blog-back-link {
     display: inline-block;
-    margin-bottom: 28px;
-    color: #4f6d7a;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.blog-back-link:hover {
-    color: #6a8fa0;
+    margin-bottom: 1.75rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
 }
