@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Auto-update the "Last updated" footer date in every staged HTML page before
+# each commit, so each page shows when it was last changed.
+MONTH_YEAR=$(date +"%B %Y")
+
+git diff --cached --name-only --diff-filter=ACMR -- '*.html' | while IFS= read -r FILE; do
+    grep -q "Last updated: " "$FILE" || continue
+    sed -i '' "s/Last updated: [A-Za-z]* [0-9]*/Last updated: $MONTH_YEAR/" "$FILE"
+    git add "$FILE"
+done
